@@ -64,7 +64,6 @@ if ($action == "S"){
 $cmd= "select * from fichefrais;";
 $res = $dbc->query($cmd);
 $table2 = $res->fetchAll();
-
 ?>
 
 <!doctype html>
@@ -82,6 +81,7 @@ $table2 = $res->fetchAll();
 
 
 <br>
+
 
 <table class="table">
 <thead>
@@ -106,7 +106,7 @@ $table2 = $res->fetchAll();
         <td> 
         <form action="cComptable.php" method="post">
           <input type="hidden" name="act" value="S"> 
-          <input type="hidden" name="idVisiteur" value="<?php echo $line["idVisiteur"];?>">
+          <input type="hidden" name="id_compta" value="<?php echo $line["id_compta"];?>">
           <input type="submit" value="S">
         </form>
         </td>
@@ -114,7 +114,9 @@ $table2 = $res->fetchAll();
 </tr>
 <?php } ?>
 </table>
-
+        <form action="cModifComptable.php" method="post">
+          <input type="submit" value="Créer">
+        </form>
 </div>
 </body>
 </html>
